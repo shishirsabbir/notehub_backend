@@ -1,19 +1,23 @@
-// Importing Modules
+// 1) IMPORT PACKAGES
+// build-in packages
+
+// third-party packages
 const express = require('express');
 
-// Importing Local Modules
-const {getNotes, getNote, createNote, updateNote, deleteNote} = require('../controller/noteController');
+// local packages
+const { getAllNotes, getNote, createNote, updateNote, deleteNote } = require('./../controllers/noteControllers');
 
 
-// Defining Express Router
+// 2) DEFINING THE EXPRESS ROUTER
 const router = express.Router();
 
 
-// Defining the routes
+// 3) SETTING UP ROUTER
 router
     .route('/')
-    .get(getNotes)
+    .get(getAllNotes)
     .post(createNote);
+
 
 router
     .route('/:id')
@@ -22,5 +26,5 @@ router
     .delete(deleteNote);
 
 
-// Exporting module
+// 4) EXPORTING ROUTER
 module.exports = router;

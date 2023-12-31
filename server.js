@@ -1,40 +1,27 @@
-// Setting Up Environment Variables
+// 0) START ZERO (SETTING UP DOTENV)
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
+// console.log(process.env);
 
-// Importing Modules
+// 1) IMPORT PACKAGES
+// build-in packages
+
+// third-party packages
 const express = require('express');
 const mongoose = require('mongoose');
 
-// Importing Local Modules
-const noteRouter = require('./routes/noteRoutes');
-const Note = require('./model/noteModels');
-
-// Connecting to DB
-const DB = process.env.DATABASE_LOCAL;
-
-mongoose
-    .connect(DB)
-    .then(con => {
-        console.log('Database Connected!');
-    })
-    .catch(error => {
-        console.log(error);
-    });
+// local packages
+const app = require('./app');
 
 
-// Defining the express app
-const app = express();
-
-// Adding Middlewares
-app.use(express.json());
-
-
-// Mouting the routers
-app.use('/api/v1/notes', noteRouter);
+// 2) DATABASE CONNECTION
+const DB = process.env.DB_LOCAL
+mongoose.connect(DB).then(() => {
+    console.log('Database Connected Successfully!');
+});
 
 
-// Listening from the server on port 3000
-app.listen(3000, () => {
+// 3) LISTENING ON PORT 3000
+app.listen(process.env.PORT, () => {
     console.log('Listening from port 3000...');
 });

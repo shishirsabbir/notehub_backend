@@ -1,32 +1,22 @@
 {
-  "name": "notehub_api",
-  "version": "0.0.1",
-  "description": "API backend for NoteHub Project",
+  "name": "notehub_backend",
+  "version": "1.0.0",
+  "description": "notehub api build with express",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shishirsabbir/notehub_backend.git"
-  },
   "keywords": [
-    "NoteHub",
-    "Note",
-    "List",
-    "Demo",
-    "Project",
-    "API",
-    "MongoDB",
-    "Node"
+    "notehub",
+    "express",
+    "node",
+    "backend",
+    "mongoose"
   ],
   "author": "arnoLiono",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/shishirsabbir/notehub_backend/issues"
-  },
-  "homepage": "https://github.com/shishirsabbir/notehub_backend#readme",
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^3.0.2"
   },
   "dependencies": {
